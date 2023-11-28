@@ -35,13 +35,41 @@
 					url: file,
 					text: `Image from bla bla ${Date.now().toLocaleString()}`,
 					title: `Shared image`,
-					/* 					label: 'Blatitle',
-					caption: 'Blatitle',
-					message: 'Blatitle', */
 				};
 				const data1 = {
 					title: 'MDN',
 					text: 'Learn web development on MDN!',
+				};
+				try {
+					if (navigator.canShare && navigator.canShare(data)) {
+						await navigator.share(data);
+					} else {
+						alert('can share is false');
+					}
+				} catch (error) {
+					console.log('Sharing failed!', error);
+				}
+			}
+
+			async function envia2() {
+				alert('hola2');
+
+				let file =
+					'https://raw.githubusercontent.com/rikarth/AutoTestsResources/main/transit/p19.png';
+
+				const blob = await fetch(file).then((r) => r.blob());
+				console.log('blob.type', blob.type);
+				var files = [
+					new File([blob], 'Blatitle.png', {
+						type: blob.type,
+						lastModified: new Date().getTime(),
+					}),
+				];
+				let filesArray = [file];
+				const data = {
+					files: files,
+					text: `Image from bla bla ${Date.now().toLocaleString()}`,
+					title: `Shared image`,
 				};
 				try {
 					if (navigator.canShare && navigator.canShare(data)) {
@@ -101,10 +129,13 @@
 			>
 			<br />
 			<br />
-			<button onclick="envia()">Envia w/image</button>
+			<button onclick="envia2()">Envia image</button>
 			<br />
 			<br />
-			<button onclick="share2()">Envia no image</button>
+			<button onclick="envia()">Envia image + url</button>
+			<br />
+			<br />
+			<button onclick="share2()">Envia no image + url</button>
 		</main>
 	</body>
 </html>
