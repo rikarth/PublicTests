@@ -72,7 +72,8 @@
 			async function share2() {
 				try {
 					await navigator.share({
-						text: 'Follow me to get more web development content.',
+						title: 'share2 Title',
+						text: 'share2 text',
 						url: 'https://google.com',
 					});
 				} catch (error) {
@@ -100,10 +101,10 @@
 			>
 			<br />
 			<br />
-			<button onclick="envia()">Envia</button>
+			<button onclick="envia()">Envia w/image</button>
 			<br />
 			<br />
-			<button onclick="share2()">Envia2</button>
+			<button onclick="share2()">Envia no image</button>
 		</main>
 	</body>
 </html>
