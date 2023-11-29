@@ -200,12 +200,14 @@
 			<button onclick="share2()">Envia no image + url</button>
 			<br />
 			<br />
-			<button onclick="enviaCaptura()">Envia captura no text</button>
+			<button onclick="enviaCaptura()">
+				Envia captura no text . html2canvas
+			</button>
 		</main>
 		<script>
 			var getCanvas;
 			async function enviaCaptura() {
-				alert('hola3b');
+				alert('hola3C');
 				const htmlData = document.getElementById('content');
 
 				html2canvas(htmlData, {
@@ -230,6 +232,7 @@
 						files: files,
 						text: `Image enviaCaptura from bla bla ${Date.now().toLocaleString()}`,
 						title: `Shared image enviaCaptura`,
+						url: 'https://google.com',
 					};
 					try {
 						if (navigator.canShare && navigator.canShare(data)) {
