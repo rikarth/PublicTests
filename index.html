@@ -199,7 +199,12 @@
 				alert('hola3b');
 				const htmlData = document.getElementById('content');
 
-				html2canvas(htmlData).then(async (canvas) => {
+				html2canvas(htmlData, {
+					letterRendering: 1,
+					allowTaint: true,
+					useCORS: true,
+					logging: true,
+				}).then(async (canvas) => {
 					const contentDataURL = canvas.toDataURL('image/png');
 
 					const blob = await fetch(contentDataURL).then((r) => r.blob());
