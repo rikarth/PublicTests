@@ -109,7 +109,7 @@
 					console.log('Sharing failed!', error);
 				}
 			}
-			var getCanvas;
+			/* var getCanvas;
 			async function enviaCaptura() {
 				alert('hola3');
 				const htmlData = document.getElementById('content');
@@ -141,7 +141,7 @@
 						console.log('Sharing failed!', error);
 					}
 				});
-			}
+			} */
 		</script>
 	</head>
 	<body>
@@ -193,5 +193,40 @@
 			<br />
 			<button onclick="enviaCaptura()">Envia captura no text</button>
 		</main>
+		<script>
+			var getCanvas;
+			async function enviaCaptura() {
+				alert('hola3');
+				const htmlData = document.getElementById('content');
+
+				html2canvas(htmlData).then(async (canvas) => {
+					const contentDataURL = canvas.toDataURL('image/png');
+
+					const blob = await fetch(contentDataURL).then((r) => r.blob());
+					console.log('blob.type', blob.type);
+					var files = [
+						new File([blob], 'enviaCaptura.png', {
+							type: blob.type,
+							lastModified: new Date().getTime(),
+						}),
+					];
+
+					const data = {
+						files: files,
+						text: `Image enviaCaptura from bla bla ${Date.now().toLocaleString()}`,
+						title: `Shared image enviaCaptura`,
+					};
+					try {
+						if (navigator.canShare && navigator.canShare(data)) {
+							await navigator.share(data);
+						} else {
+							alert('can share is false');
+						}
+					} catch (error) {
+						console.log('Sharing failed!', error);
+					}
+				});
+			}
+		</script>
 	</body>
 </html>
