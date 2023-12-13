@@ -126,49 +126,71 @@
 	</head>
 	<body>
 		<main data-mtg-paper="" id="ik7vn" class="mtg-container">
-			<div id="share-content" style="width: 0; height: 0; overflow: hidden">
-				<div
-					id="content"
-					style="
-						color: blanchedalmond;
-						background-color: silver;
-						border: 1px solid black;
-						width: 9cm;
-						height: 14cm;
-						background-image: url('https://packhfbarcelonadev.blob.core.windows.net/media/f271cd40-d015-44c7-90ef-8b3ded40f347?sv=2021-08-06&st=2023-11-29T04%3A53%3A20Z&se=2023-11-29T12%3A53%3A20Z&sr=c&sp=r&sig=%2BtvI1BTBnJx%2BKPo2kxlwhkUMp3FuwXaGxjsTmS0SVAY%3D');
-						background-repeat: no-repeat;
-						background-size: cover;
-						display: flex;
-						flex-direction: column;
-						align-items: center;
-						justify-content: space-evenly;
-					"
-				>
-					<header>
-						<h2>Test title</h2>
-						<h4>Test text bla bla bla</h4>
-					</header>
-					<img
-						src="https://raw.githubusercontent.com/rikarth/AutoTestsResources/main/aliments/coffee.png"
-						style="width: 75%; height: auto"
-					/>
+			<fieldset>
+				<legend>Share Image + text + url</legend>
+				<button onclick="envia()">Share</button>
+			</fieldset>
+			<fieldset>
+				<legend>Share Title + Text + url</legend>
+				<dl>
+					<dt>Title</dt>
+					<dd>share2 Title</dd>
+					<dt>Text</dt>
+					<dd>share2 text</dd>
+					<dt>Url</dt>
+					<dd>https://google.com</dd>
+				</dl>
+				<button onclick="share2()">Share</button>
+			</fieldset>
+			<fieldset>
+				<legend>Share only url</legend>
+				<dl>
+					<dt>Url</dt>
+					<dd>https://google.com</dd>
+				</dl>
+				<button onclick="share3()">Share</button>
+			</fieldset>
+			<fieldset>
+				<legend>Share only Text</legend>
+				<dl>
+					<dt>Text</dt>
+					<dd>share2 text</dd>
+				</dl>
+				<button onclick="share4()">Share only Text</button>
+			</fieldset>
+			<fieldset>
+				<legend>Share html content</legend>
+				<div id="share-content">
+					<!-- style="width: 0; height: 0; overflow: hidden"-->
+					<div
+						id="content"
+						style="
+							color: blanchedalmond;
+							background-color: silver;
+							border: 1px solid black;
+							width: 8cm;
+							height: 12cm;
+							background-image: url('https://packhfbarcelonadev.blob.core.windows.net/media/f271cd40-d015-44c7-90ef-8b3ded40f347?sv=2021-08-06&st=2023-11-29T04%3A53%3A20Z&se=2023-11-29T12%3A53%3A20Z&sr=c&sp=r&sig=%2BtvI1BTBnJx%2BKPo2kxlwhkUMp3FuwXaGxjsTmS0SVAY%3D');
+							background-repeat: no-repeat;
+							background-size: cover;
+							display: flex;
+							flex-direction: column;
+							align-items: center;
+							justify-content: space-evenly;
+						"
+					>
+						<header>
+							<h2>Test title</h2>
+							<h4>Test text bla bla bla</h4>
+						</header>
+						<img
+							src="https://raw.githubusercontent.com/rikarth/AutoTestsResources/main/aliments/coffee.png"
+							style="width: 75%; height: auto"
+						/>
+					</div>
 				</div>
-			</div>
-			<br />
-			<br />
-			<button onclick="envia()">Share Image + text + url</button>
-			<br />
-			<br />
-			<button onclick="share2()">Share Title + Text + url</button>
-			<br />
-			<br />
-			<button onclick="share3()">Share only url</button>
-			<br />
-			<br />
-			<button onclick="share4()">Share only Text</button>
-			<br />
-			<br />
-			<button onclick="enviaCaptura()">Share html content</button>
+				<button onclick="enviaCaptura()">Share</button>
+			</fieldset>
 		</main>
 		<script>
 			var getCanvas;
