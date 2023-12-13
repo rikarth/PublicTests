@@ -115,6 +115,16 @@
 					console.log('Sharing failed!', error);
 				}
 			}
+
+			async function share4() {
+				try {
+					await navigator.share({
+						text: 'share2 text',
+					});
+				} catch (error) {
+					console.log('Sharing failed!', error);
+				}
+			}
 			/* var getCanvas;
 			async function enviaCaptura() {
 				const htmlData = document.getElementById('content');
@@ -205,7 +215,10 @@
 			<button onclick="share2()">Text + url</button>
 			<br />
 			<br />
-			<button onclick="share3()">url</button>
+			<button onclick="share3()">Only url</button>
+			<br />
+			<br />
+			<button onclick="share4()">Only Text</button>
 			<br />
 			<br />
 			<button onclick="enviaCaptura()">Captura html</button>
